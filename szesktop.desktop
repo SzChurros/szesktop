@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Szesktop
+Comment=Minimalist Tiling Desktop Enviorment
+Exec=i3
+TryExec=i3
+Type=XSession
+X-LightDM-DesktopName=i3
+Type=Application
+DesktopNames=Szesktop
