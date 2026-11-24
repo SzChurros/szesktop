@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Script to change setxkbmap
+
+# Use rofi to get kbmap from list
+KBMAP=$(echo -e "pl\nes" | rofi -dmenu -p "Wybierz xkbmap")
+
+setxkbmap $KBMAP

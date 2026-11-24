@@ -1,0 +1,23 @@
+#!/bin/bash
+
+options="Poweroff
+Reboot
+Logout
+Lock"
+
+chosen=$(echo -e "$options" | rofi -dmenu -i -p "Power")
+
+case "$chosen" in
+    *Poweroff)
+        sudo openrc-shutdown -p 0
+        ;;
+    *Reboot)
+        sudo openrc-shutdown -r 0
+        ;;
+    *Logout)
+        i3-msg exit
+        ;;
+    *Lock)
+        i3lock -c 000000
+        ;;
+esac

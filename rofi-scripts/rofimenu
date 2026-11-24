@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SCRIPT_DIR="$HOME/rofi-scripts"
+SCRIPT_LIST=$(ls $SCRIPT_DIR)
+SCRIPT_CHOICE=$(echo "$SCRIPT_LIST" | rofi -dmenu -p "Select script to run")
+
+if [ -n "$SCRIPT_CHOICE" ]; then
+    "$SCRIPT_DIR/$SCRIPT_CHOICE"
+fi
