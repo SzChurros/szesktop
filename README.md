@@ -1,3 +1,6 @@
+> [!WARNING]
+> The installation scripts REPLACE EXISTING CONFIGS to those found in the config folder in the repo
+
 # Szesktop
 
 An minimalist DE based on i3wm and szcheme.
