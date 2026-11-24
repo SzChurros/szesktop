@@ -1,0 +1,9 @@
+[global]
+    font = "JetBrains Mono NL 10"
+    background = "#222222"
+    foreground = "#FFFFFF"
+    frame_width = 1
+    frame_color = "#333333"
+    separator_height = 2
+    separator_color = "#333333"
+    geometry = "300x50-10+10"

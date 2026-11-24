@@ -1,0 +1,148 @@
+#
+#
+# Header thhing
+#
+#
+
+#Mod1 is left alt
+set $mod Mod1
+
+#main rofi menu script
+set $rofiscr ~/rofi-scripts/rofimenu
+#desktop image location
+set $deskimg ~/pulpit.jpg
+
+font pango:JetBrains Mono NL 8
+
+#
+#
+# AUTOSTART
+#
+#
+
+exec --no-startup-id setxkbmap pl # change if you want
+
+exec_always picom --config ~/.config/picom/picom.conf
+
+exec --no-startup-id feh --bg-scale $deskimg
+exec --no-startup-id polybar topbar
+exec --no-startup-id nm-applet
+exec --no-startup-id dunst
+
+exec --no-startup-id dbus-update-activation-environment --all
+
+exec --no-startup-id setxkbmap pl
+exec --no-startup-id setxkbmap -option caps:none
+
+exec --no-startup-id export QT_QPA_PLATFORMTHEME=qt6ct
+
+exec --no-startup-id xset s off       # Disables turning screen off
+exec --no-startup-id xset -dpms       # Disables energy management (DPMS)
+exec --no-startup-id xset s noblank   # Disables black screen
+
+#
+#
+# Dragging windows thing
+#
+#
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
+
+#
+#
+# KEYBINDS
+#
+#
+
+# kill focused window
+bindsym $mod+F4 kill
+
+# rofi app menu and window changer
+
+bindsym $mod+space exec --no-startup-id $rofiscr
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+
+# lock screen
+
+bindsym $mod+l exec i3lock -c 000000
+
+# screenshot and emoji picker
+
+bindsym Print exec --no-startup-id ksnip -r
+bindsym Mod4+period exec --no-startup-id rofimoji
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+t floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+t focus mode_toggle
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+#
+#
+# COLOR
+#
+#
+
+# border|background|text|border with highlight|background with highlight
+
+# focused window
+client.focused    #191919 #222222 #aaaaaa #252525 #252525
+
+# unfocused
+client.unfocused  #050505 #111111 #777777 #141414 #141414
+
+# „urgent”
+client.urgent     #aa2222 #900000 #ffffff #900000 #333333
+
+#FDM float
+
+for_window [class="Free Download Manager"] floating enable

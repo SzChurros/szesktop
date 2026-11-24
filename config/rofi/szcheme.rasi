@@ -1,0 +1,36 @@
+* {
+    bg: #222222;
+    fg: #aaaaaa;
+    accent: #191919;
+    background-color: @bg;
+    text-color: @fg;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    width: 30%;
+    border: 2px;
+    border-color: @accent;
+    padding: 2px;
+}
+
+inputbar {
+    padding: 4px;
+    border: 2px;
+    border-color: @accent;
+    children: [prompt, entry];
+}
+
+listview {
+    lines: 12;
+    spacing: 0px;
+}
+
+element {
+    padding: 2px;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: @bg;
+}
